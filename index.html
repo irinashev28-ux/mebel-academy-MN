@@ -9,21 +9,16 @@
     
     <style>
         :root {
-            /* Нова кольорова гама: Графіт + Помаранч */
             --dark-gradient: linear-gradient(135deg, #2d3436 0%, #1e272e 100%);
-            --dark-solid: #2d3436; /* Колір для рамок та акцентів */
-            --accent-color: #FF8C00; /* Яскравий помаранчевий */
+            --dark-solid: #2d3436;
+            --accent-color: #FF8C00;
             --bg-light: #fdfdfd;
             --text-main: #2c3e50;
             --text-muted: #7f8c8d;
             --transition: all 0.3s ease;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Montserrat', sans-serif;
@@ -33,13 +28,8 @@
             overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        /* --- Header з темним градієнтом (НЕ ЧОРНИЙ) --- */
         header {
             background: var(--dark-gradient);
             padding: 15px 0;
@@ -48,14 +38,8 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
 
-        .logo img {
-            height: 90px;
-            width: auto;
-            display: block;
-            border-radius: 50%;
-        }
+        .logo img { height: 90px; width: auto; display: block; border-radius: 50%; }
 
-        /* --- Кнопки округлої форми --- */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -74,10 +58,7 @@
             box-shadow: 0 8px 20px rgba(255, 140, 0, 0.25);
         }
 
-        .btn i {
-            margin-right: 12px;
-            font-size: 20px;
-        }
+        .btn i { margin-right: 12px; font-size: 20px; }
 
         .btn:hover {
             background: transparent;
@@ -88,11 +69,10 @@
 
         /* Hero Section */
         .hero {
-            position: relative;
+            padding: 60px 0;
             min-height: calc(100vh - 120px);
             display: flex;
             align-items: center;
-            padding: 60px 0;
         }
 
         .hero-grid {
@@ -126,14 +106,14 @@
 
         .hero-image img {
             width: 100%;
-            height: 75vh;
+            max-height: 75vh;
             object-fit: cover;
-            box-shadow: 30px 30px 0px rgba(0,0,0,0.03);
-            border-radius: 5px;
+            border-radius: 15px;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
         }
 
-        /* Sections */
-        .section { padding: 100px 0; }
+        /* Common Sections */
+        .section { padding: 80px 0; }
         .section-title {
             font-family: 'Playfair Display', serif;
             font-size: 36px;
@@ -141,7 +121,7 @@
             text-align: center;
         }
 
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
 
         .card {
             background: #fff;
@@ -159,83 +139,79 @@
         }
 
         ul { list-style: none; }
-        ul li { margin-bottom: 15px; position: relative; padding-left: 25px; }
+        ul li { margin-bottom: 12px; position: relative; padding-left: 25px; }
         ul li::before { content: "—"; position: absolute; left: 0; color: var(--accent-color); }
 
         .warning-card { border-left: 5px solid #e74c3c; background: #fafafa; }
 
         .pain-section { background: #f4f7f6; text-align: center; }
 
-        /* --- Філософія з темним градієнтом --- */
         .philosophy {
             background: var(--dark-gradient);
             color: #fff;
-            padding: 120px 0;
+            padding: 100px 0;
         }
 
-        .philosophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-        .quote {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            line-height: 1.5;
-            font-style: italic;
-            opacity: 0.9;
-        }
-
-        /* --- Блок "БАЗА" з округленою графітовою рамкою --- */
-        .formats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .philosophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .quote { font-family: 'Playfair Display', serif; font-size: 22px; font-style: italic; opacity: 0.9; }
 
         .format-card {
-            padding: 60px 40px;
+            padding: 50px 30px;
             text-align: center;
             border: 1px solid #eee;
-            transition: var(--transition);
             background: #fff;
             border-radius: 20px;
+            transition: var(--transition);
         }
 
         .format-card.base {
-            border: 4px solid var(--dark-solid); /* Графітова рамка */
+            border: 4px solid var(--dark-solid);
             transform: scale(1.05);
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            z-index: 5;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
 
-        .format-card h3 { font-size: 32px; letter-spacing: 5px; margin-bottom: 15px; }
-
-        /* About Author */
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
         .about-image img { width: 100%; border-radius: 15px; }
 
-        /* Footer */
-        footer { padding: 80px 0 40px; border-top: 1px solid #eee; text-align: center; }
+        footer { padding: 60px 0 40px; border-top: 1px solid #eee; text-align: center; }
         .footer-logo-box {
             background: var(--dark-gradient);
             display: inline-block;
-            padding: 25px;
-            border-radius: 20px;
-            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
         }
-        .footer-logo-box img { height: 80px; }
-        .contacts { margin-bottom: 40px; }
-        .contacts a {
-            color: var(--text-main);
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: 700;
-            font-size: 18px;
-            transition: var(--transition);
-        }
-        .contacts a:hover { color: var(--accent-color); }
-        .copyright { font-size: 14px; color: var(--text-muted); margin-top: 20px; }
+        .footer-logo-box img { height: 70px; }
+        .contacts { margin-bottom: 30px; }
+        .contacts a { color: var(--text-main); text-decoration: none; margin: 0 15px; font-weight: 700; }
+        .copyright { font-size: 13px; color: var(--text-muted); margin-top: 20px; }
 
-        /* Mobile */
+        /* --- MOBILE FIXES --- */
         @media (max-width: 768px) {
-            .hero-grid, .grid-2, .philosophy-grid, .formats-grid, .about-grid { grid-template-columns: 1fr; }
-            .hero-image { display: none; }
-            .format-card.base { transform: scale(1); margin: 30px 0; }
+            .hero-grid, .grid-2, .philosophy-grid, .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
             .hero-content h2 { font-size: 32px; }
+            
+            /* Фото більше не зникає, а стає під текстом */
+            .hero-image {
+                order: 2; 
+                margin-top: 40px;
+                display: block !important;
+            }
+            
+            .hero-content { order: 1; }
+
+            .format-card.base { transform: scale(1); margin: 20px 0; }
+            
+            .about-grid .about-image { order: 2; }
+            .about-grid .about-content { order: 1; }
+            
+            .section-title { font-size: 28px; }
+            
+            .contacts a { display: block; margin: 10px 0; }
         }
     </style>
 </head>
@@ -295,25 +271,21 @@
     <section class="section pain-section">
         <div class="container">
             <h2 class="section-title">Реальність ринку сьогодні</h2>
-            <div class="grid-2" style="text-align: left;">
+            <div style="max-width: 600px; margin: 0 auto; text-align: left;">
                 <p>— Навчання методом помилок</p>
                 <p>— Відсутність системної освіти</p>
                 <p>— Нерозуміння своєї ролі в ремонті</p>
                 <p>— Сплата репутацією за дрібні рішення</p>
             </div>
-            <p style="margin-top: 50px; font-weight: 700; font-size: 20px;">Ми створили Академію, щоб це змінити.</p>
+            <p style="margin-top: 40px; font-weight: 700; font-size: 18px;">Ми створили Академію, щоб це змінити.</p>
         </div>
     </section>
 
     <section class="philosophy">
         <div class="container">
             <div class="philosophy-grid">
-                <div class="quote">
-                    "Мебляр — ключова фігура ремонту. Помилка в меблях — це роки незручності для клієнта."
-                </div>
-                <div class="quote">
-                    "Професія починається з мислення. Відповідальність — це не тягар, а частина вашої майстерності."
-                </div>
+                <div class="quote">"Мебляр — ключова фігура ремонту. Помилка в меблях — це роки незручності."</div>
+                <div class="quote">"Професія починається з мислення. Відповідальність — частина майстерності."</div>
             </div>
         </div>
     </section>
@@ -321,28 +293,27 @@
     <section class="section">
         <div class="container">
             <h2 class="section-title">Формати навчання</h2>
-            <div class="formats-grid">
+            <div class="grid-2">
                 <div class="format-card base">
-                    <h3>BASE</h3>
-                    <span style="color: var(--accent-color); font-weight: 700; display: block; margin-bottom: 25px; text-transform: uppercase;">Фундамент професії</span>
-                    <ul>
+                    <h3 style="letter-spacing: 3px;">BASE</h3>
+                    <p style="color: var(--accent-color); font-weight: 700; margin-bottom: 20px;">Фундамент професії</p>
+                    <ul style="text-align: left;">
                         <li>системне розуміння процесів;</li>
                         <li>логіка проєктування;</li>
                         <li>базові помилки та як їх уникати.</li>
                     </ul>
-                    <p style="margin-top: 30px; font-weight: 800; color: var(--dark-solid);">👉 Для тих, хто хоче опору</p>
+                    <p style="margin-top: 25px; font-weight: 800;">👉 Для тих, хто хоче опору</p>
                 </div>
-
                 <div class="format-card">
-                    <h3>PRO</h3>
-                    <span style="color: var(--accent-color); font-weight: 700; display: block; margin-bottom: 25px; text-transform: uppercase;">Рівень експерта</span>
-                    <ul>
+                    <h3 style="letter-spacing: 3px;">PRO</h3>
+                    <p style="color: var(--accent-color); font-weight: 700; margin-bottom: 20px;">Рівень експерта</p>
+                    <ul style="text-align: left;">
                         <li>складні проєкти;</li>
                         <li>робота з дизайнерами;</li>
                         <li>відповідальність за рішення;</li>
                         <li>професійна комунікація.</li>
                     </ul>
-                    <p style="margin-top: 30px; font-weight: 800;">👉 Для тих, хто хоче статус</p>
+                    <p style="margin-top: 25px; font-weight: 800;">👉 Для тих, хто хоче статус</p>
                 </div>
             </div>
         </div>
@@ -355,19 +326,17 @@
                     <img src="photo2.jpg" alt="Марина Нагабедян">
                 </div>
                 <div class="about-content">
-                    <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">Про Марину Нагабедян</h2>
-                    <p style="font-size: 22px; margin-bottom: 20px; font-weight: 600; line-height: 1.4;">Я знаю, де меблі ламають проєкти. <br>І знаю, як цього не допустити.</p>
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Про Марину Нагабедян</h2>
+                    <p style="font-size: 20px; font-weight: 600; margin-bottom: 15px;">Я знаю, де меблі ламають проєкти. <br>І знаю, як цього не допустити.</p>
                     <p style="color: var(--text-muted);">Моє завдання — передати вам систему, яка виключить хаос і дозволить працювати на рівні, де вас поважають і як майстра, і як партнера.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section" style="text-align: center; background: #f9f9f9;">
+    <section class="section" style="background: #f9f9f9; text-align: center;">
         <div class="container">
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
-                Якщо ти відчуваєш, що хочеш більшого в професії — почни з правильного фундаменту.
-            </h2>
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 40px;">Готові почати професійний шлях?</h2>
             <a href="https://t.me/your_bot_link" class="btn">
                 <i class="fab fa-telegram-plane"></i> Отримати програму навчання
             </a>
